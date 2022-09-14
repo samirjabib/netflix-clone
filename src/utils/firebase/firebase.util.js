@@ -4,9 +4,8 @@ import {
     getAuth, 
     signInWithEmailAndPassword, 
     createUserWithEmailAndPassword, 
-    signOut, onAuthStateChanged,
-    GoogleAuthProvider,
-    signInWithPopup
+    signOut, 
+    onAuthStateChanged,
 } from 'firebase/auth';
 
 import { 
@@ -14,10 +13,6 @@ import {
   doc, 
   getDoc,
   setDoc,
-  collection,
-  writeBatch,
-  query,
-  getDocs,
  } from 'firebase/firestore';
 
  const firebaseConfig = {
@@ -37,15 +32,6 @@ export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp)
 
 
-const googleProvider = new GoogleAuthProvider();
-
-googleProvider.setCustomParameters({
-    prompt:'select_account',
-});
-
-
-export const signInGooglePopup = () => 
-    signInWithPopup(auth, googleProvider);
 
 export const createUserDocumentFromAuth = async (
     userAuth,

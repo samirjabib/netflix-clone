@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import { useState } from "react";
 
 import { Link } from 'react-router-dom'
@@ -11,6 +12,7 @@ const defaultFormFields = {
     name:'',
     email:'',
     password:'',
+    confirmPassword:'',
    
 };
 
@@ -18,19 +20,37 @@ const defaultFormFields = {
 const SingIn = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields)
-    const { name, email, password } = formFields
-
-    console.log(formFields)
-    
+    const { name, email, password, confirmPassword } = formFields
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
 
-   const handleSubmit = () => {
-    
-   }
+   const handleSubmit = async ( event) => {
+        event.preventDefault();
+
+        if(password !== confirmPassword){
+            alert('password do not match');
+            return;
+        }
+
+        try{
+            const { user } = await createAuthUserWithEmailAndPassword(
+                email,
+                password,
+            );
+            await createUserDocumentFromAuth(user , { name });
+            console.log(user)
+            resetFormFields
+        } catch(error) {
+            if(error.code === 'auth/email-already-in-use'){
+                alert('Cannot create user, email already in use');
+            } else {
+                console.log('user creation encontered an error ', error)
+            }
+        }
+   };
 
     const handleChange = (event) => {    
         const { name, value } = event.target;
@@ -50,7 +70,7 @@ const SingIn = () => {
                     <div className="max-w-[450px] h-[600px] bg-black/75 text-white mx-auto">
                         <div className="max-w-[320px] mx-auto py-16">
                             <h1 className="text-3xl font-bold">Sign In</h1>
-                            <form className="w-full flex flex-col py-4">
+                            <form className="w-full flex flex-col py-4" onSubmit={ handleSubmit }>
                                 <input
                                 className="py-3 my-2 bg-gray-600 rounded"
                                 label='name'
@@ -91,15 +111,14 @@ const SingIn = () => {
                                 label='password'
                                 type='password'
                                 required
-                                name='password'
-                                value={password}
+                                name='confirmPassword'
+                                value={confirmPassword}
                                 autoComplete='current-password'
                                 onChange={handleChange}
                                 placeholder='Confirm password'
                                 />
                                 <button 
                                     className="bg-red-600 py-3 my-6 rounded font-bold"
-                                    onChange={ handleSubmit }
                                 >
                                     Sign In
                                 </button>
