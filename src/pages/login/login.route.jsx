@@ -1,5 +1,6 @@
 import { useState } from "react";
-import FormInput from "../../components/form-input/form-input.component";
+
+import { Link } from 'react-router-dom'
 
 const defaultFormFields = {
     email:'',
@@ -39,28 +40,44 @@ const Login = () => {
                     <div className="max-w-[450px] h-[600px] bg-black/75 text-white mx-auto">
                         <div className="max-w-[320px] mx-auto py-16">
                             <h1 className="text-3xl font-bold">Sign Up</h1>
-                            <form>
-                                <FormInput
+                            <form className="w-full flex flex-col py-4">
+                                <input
+                                    className="py-3 my-2 bg-gray-600 rounded"
                                     label='email'
                                     type='email'
                                     required
                                     name='email'
                                     value={email}
+                                    autoComplete='email'
                                     onChange={handleChange}
+                                    placeholder='Email'
                                  
                                 />
-                                <FormInput
+                                <input
+                                    className="py-3 my-2 bg-gray-600 rounded"
                                     label='password'
                                     type='password'
                                     required
                                     name='password'
                                     value={password}
+                                    autoComplete='current-password'
                                     onChange={handleChange}
+                                    placeholder='Password'
                                 />
-                                <button>
-                                    Sign In
+                                <button className="bg-red-600 py-3 my-6 rounded font-bold">
+                                    Sign Up
                                 </button>
-                                
+                                <div className="flex justify-between items-center text-sm text-gray-600">
+                                    <p><input type='checkbox' className="mr-2"/>Remember me</p>
+                                    <p>Need Help?</p>
+                                </div>
+                                <p className="py-8">
+                                <span className="text-gray-600">Already subscribed to Netflix?</span>
+                                {' '}
+                                <Link to='/'>
+                                    Sign In
+                                </Link>
+                                </p>
                             </form>
                         </div>
                     </div>
