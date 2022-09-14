@@ -8,9 +8,9 @@ import Navbar from './components/nav-bar/nav-bar.component';
 
 //*Pages
 import Account from './pages/account/account.route';
-import SignUp from './pages/sing-up/sing-up.route';
 import Login from './pages/login/login.route';
 import Home from './pages/home/home.route';
+import SignIn from './pages/sing-in/sing-in.route'
 
 const App = () => {
 
@@ -20,9 +20,9 @@ const App = () => {
     <>
       <Navbar/>
       <Routes>
-        <Route path='/' index element= {<Home/>} />
-        <Route path='/sign-up' element={<SignUp/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/' index element = {<Home/>} />
+        <Route path='/sign-in' element = { <SignIn/>}/>
+        <Route path='/login' element ={<Login/>}/>
 
       </Routes>
     </>

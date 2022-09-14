@@ -23,7 +23,6 @@ const firebaseConfig = {
 };
   
 
-console.log(firebaseConfig)
 
 //Intialize firebase
 export const firebaseApp = initializeApp(firebaseConfig);
@@ -37,8 +36,11 @@ googleProvider.setCustomParameters({
     prompt:'select_account',
 });
 
+
 export const signInGooglePopup = () => 
-    signInGooglePopup(auth, googleProvider);
+    signInWithPopup(auth, googleProvider);
+
+
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if(!email || !password ) return;
@@ -58,4 +60,3 @@ export const onAuthStateChangedListener = ( callback ) =>
     onAuthStateChanged(auth, callback);
 
 
-    

@@ -2,7 +2,7 @@
 const Login = () => {
     return (
         <div>
-            <h1>im the login</h1>
+            <h1 className="text-white">im the login</h1>
         </div>
     );
 };
