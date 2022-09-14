@@ -4,6 +4,11 @@ const FormInput = ({label ,...otherProps}) => {
     return (
         <div>
             <input {...otherProps}/>
+            {label && (
+                <label shirnk = { otherProps.value.length}>
+                    {label}
+                </label>
+            )}
         </div>
     );
 };

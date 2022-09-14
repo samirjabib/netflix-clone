@@ -1,5 +1,33 @@
+import { useState } from "react";
+import FormInput from "../../components/form-input/form-input.component";
+
+const defaultFormFields = {
+    email:'',
+    password:'',
+   
+};
 
 const Login = () => {
+
+    const [formFields, setFormFields] = useState(defaultFormFields)
+    const { email, password } = formFields
+
+    console.log(formFields)
+    
+
+    const resetFormFields = () => {
+        setFormFields(defaultFormFields)
+    }
+
+    const handleChange = (event) => {
+      
+        
+        const { name, value } = event.target;
+
+        setFormFields({...formFields, [name]:value })
+    }
+
+
     return (
             <div className="w-full h-screen ">
                 <img 
@@ -12,6 +40,26 @@ const Login = () => {
                         <div className="max-w-[320px] mx-auto py-16">
                             <h1 className="text-3xl font-bold">Sign Up</h1>
                             <form>
+                                <FormInput
+                                    label='email'
+                                    type='email'
+                                    required
+                                    name='email'
+                                    value={email}
+                                    onChange={handleChange}
+                                 
+                                />
+                                <FormInput
+                                    label='password'
+                                    type='password'
+                                    required
+                                    name='password'
+                                    value={password}
+                                    onChange={handleChange}
+                                />
+                                <button>
+                                    Sign In
+                                </button>
                                 
                             </form>
                         </div>
