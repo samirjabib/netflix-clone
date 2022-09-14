@@ -35,13 +35,13 @@ const Main = () => {
 
 
     return (
-        <div className="w-full h-[550px] text-white bg-cyan-400">
-            <div className="w-full h-[550px] bg-gradient-to-r absolute from-black"></div>
+        <div className="w-full h-[850px] text-white bg-cyan-400">
+            <div className="w-full h-[850px] bg-gradient-to-r absolute from-black"></div>
             <div className="w-full h-full">
                 <img
                     src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
                     alt={movie?.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                     />
             </div>
             
@@ -49,7 +49,7 @@ const Main = () => {
                 
                 <h1 className="text-3xl md:text-5xl l font-bold'">{movie?.title}</h1>
                 <div className="my-4">
-                    <button className="border py-2 px-5 bg-gray-300">Play</button>
+                    <button className="border py-2 px-5 bg-gray-300 font-extrabold text-red">Play</button>
                     <button className="border border-gray-400 py-2 px-5 ml-4">Watch Later</button>
                 </div>
                 <p className="text-gray-400 text-sm">
