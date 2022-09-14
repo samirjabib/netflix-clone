@@ -20,16 +20,15 @@ import {
   getDocs,
  } from 'firebase/firestore';
 
-const firebaseConfig = {
-    apiKey: process.env.apiKey,
-    authDomain: process.env.authDomain,
-    projectId: process.env.projectId,
-    storageBucket:process.env.storageBucket,
-    messagingSenderId:process.env.messagingSenderId,
-    appId: process.env.appId,
-    measurementId: process.env.measurementId,
-};
-  
+ const firebaseConfig = {
+    apiKey: "AIzaSyAXdk7FR6RcEpyJE-6UudSXNICJPduHiho",
+    authDomain: "netflix-clone-e3bf4.firebaseapp.com",
+    projectId: "netflix-clone-e3bf4",
+    storageBucket: "netflix-clone-e3bf4.appspot.com",
+    messagingSenderId: "801342406602",
+    appId: "1:801342406602:web:e43f27b5829da57b8a5933",
+    measurementId: "G-YMY127F9HP"
+  };
 
 
 //Intialize firebase

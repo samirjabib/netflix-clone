@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import {
     createAuthUserWithEmailAndPassword,
-    
+    createUserDocumentFromAuth
  } from '../../utils/firebase/firebase.util'; 
 
 const defaultFormFields = {
@@ -27,9 +27,12 @@ const SingIn = () => {
         setFormFields(defaultFormFields)
     }
 
-    const handleChange = (event) => {
-      
-        
+
+   const handleSubmit = () => {
+    
+   }
+
+    const handleChange = (event) => {    
         const { name, value } = event.target;
 
         setFormFields({...formFields, [name]:value })
@@ -94,7 +97,10 @@ const SingIn = () => {
                                 onChange={handleChange}
                                 placeholder='Confirm password'
                                 />
-                                <button className="bg-red-600 py-3 my-6 rounded font-bold">
+                                <button 
+                                    className="bg-red-600 py-3 my-6 rounded font-bold"
+                                    onChange={ handleSubmit }
+                                >
                                     Sign In
                                 </button>
                                 <div className="flex justify-between items-center text-sm text-gray-600">
