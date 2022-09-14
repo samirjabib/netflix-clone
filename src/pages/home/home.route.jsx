@@ -6,12 +6,12 @@ const Home = () => {
     return (
         <div> 
             <Main/>
-            <Row title='Up Coming' fetchURL={request.requestUpcoming}/>
-            <Row title='Popular' fetchURL={request.requestPopular}/>
-            <Row title='Trending' fetchURL={request.requestTrending}/>
-            <Row title='Top Rated' fetchURL={request.requestTopRated}/>
-            <Row title='Horror' fetchURL={request.requestHorror}/>
-          
+            <Row rowID='1' title='Up Coming' fetchURL={request.requestUpcoming}/>
+            <Row rowID='2' title='Popular' fetchURL={request.requestPopular}/>
+            <Row rowID='3' title='Trending' fetchURL={request.requestTrending}/>
+            <Row rowID='4' title='Top Rated' fetchURL={request.requestTopRated}/>
+            <Row rowID='5' title='Horror' fetchURL={request.requestHorror}/>
+        
 
         </div>
     );
