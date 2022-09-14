@@ -2,6 +2,11 @@ import { useState } from "react";
 
 import { Link } from 'react-router-dom'
 
+import {
+    createAuthUserWithEmailAndPassword,
+    
+ } from '../../utils/firebase/firebase.util'; 
+
 const defaultFormFields = {
     name:'',
     email:'',
